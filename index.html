@@ -61,16 +61,64 @@
 			<H1>首届中葡蓝色生物科技研讨会</H1>
 			<H1>Apr 24-25, 2025</H1>
 			<H1>Macau, China 中国澳门</H1>
-			<a id=link style="font-size:2em;color:white;background:lightblue;padding:0.5em 1em;border-radius:3em;text-decoration:none;margin-bottom:1em;" href="https://4670e624.sibforms.com/serve/MUIFAC5F2_l0pxScy2gdraIGaPJrl7VM-HdYJZXpIzPcQ22zvrdl2hcLT4q72MWv6dW3H0NBjtmdpqOoS8-vk4uEYNnONLeH34obSjbiLkvYKULLCA9hKZS28oyKFWLcXIkHHaQ4Ae7M6F5Idco0ABDuMnJRIYwThdBh7J1XuO7bc0mBMvPJYgEpeW0kOlCg_SgR1BxxZDG-N0uy" >Register</a>
-			<a id=link style="font-size:2em;color:white;background:lightblue;padding:0.5em 1em;border-radius:3em;text-decoration:none;margin-bottom:1em;" href="https://4670e624.sibforms.com/serve/MUIFALjg4BMiDFqdN2RFdBP66KSuirJLL9XUer7mOTaHY9UM07R3lOmMxycTR4XCpCDggnhCLv-yDb0CBcTFXR0aCHfJfUch99z3m_u2dTRbuXY40nlkT84GIKeD5o4TAz6FOUYXQdSuDHByxDk5zZ3-V2LoKCBujuOdQu5czIxmK__r7dBlKSSsRsje-Twu_K26dUJL6VfWCfT3" >登记</a>
+
 			<!-- menu -->
 			<div id=menu style=width:100%;flex-direction:row;justify-content:space-around;>
 				<style>
-					#menu a { background:lightblue;padding:0.5em;border-radius:3em;text-decoration:none;color:white;text-shadow:1px 1px 3px darkblue;}
+				#menu a { padding:0.5em;border-radius:3em;text-decoration:none;color:white;text-shadow:1px 1px 3px darkblue;min-width:80px;}
+				.wrapper {
+				  height: 100%;
+				  background-color: #f5f6fa;
+				}
+
+				.wave-btn {
+				  position:relative;
+				  color: #fff;
+				  text-decoration: none;
+				  /*border: 3px solid #fff;*/
+				  border-radius: 3em;
+				  background: rgba(0,255,255,0.5);
+				  padding: 5px 30px;
+				  font-size: 22px;
+				  font-weight: 600;
+				  font-family: "Noto Sans";
+				  line-height: 52px;
+				  overflow: hidden;
+				  transition: all 1s;
+				}
+				.wave-btn:before {
+				  content: "";
+				  position: absolute;
+				  width: 320px;
+				  height: 320px;
+				  border-radius: 130px;
+				  background-color: navy;
+				  top: 60%;
+				  left: 50%;
+				  animation: wave 5s infinite linear;
+				  transition: all 1s;
+				  z-index: -1;
+				}
+				.wave-btn:hover:before {
+				  top: 20%;
+				}
+
+				@keyframes wave {
+				  0% {
+					  transform: translate(-50%) rotate(-180deg);
+				    
+				  }
+				  
+				  
+				  100% {
+					  transform: translate(-50%) rotate(360deg);
+				  }
 				</style>
+				<a id=link class=wave-btn href="https://4670e624.sibforms.com/serve/MUIFAC5F2_l0pxScy2gdraIGaPJrl7VM-HdYJZXpIzPcQ22zvrdl2hcLT4q72MWv6dW3H0NBjtmdpqOoS8-vk4uEYNnONLeH34obSjbiLkvYKULLCA9hKZS28oyKFWLcXIkHHaQ4Ae7M6F5Idco0ABDuMnJRIYwThdBh7J1XuO7bc0mBMvPJYgEpeW0kOlCg_SgR1BxxZDG-N0uy" >Register</a>
+				<a id=link class=wave-btn href="https://4670e624.sibforms.com/serve/MUIFALjg4BMiDFqdN2RFdBP66KSuirJLL9XUer7mOTaHY9UM07R3lOmMxycTR4XCpCDggnhCLv-yDb0CBcTFXR0aCHfJfUch99z3m_u2dTRbuXY40nlkT84GIKeD5o4TAz6FOUYXQdSuDHByxDk5zZ3-V2LoKCBujuOdQu5czIxmK__r7dBlKSSsRsje-Twu_K26dUJL6VfWCfT3" >登记</a>
 				<!--<a href="#speakers">Seeking Speakers 寻求演講者</a> -->
 				<!--<a href="#programme">Programme 程序</a> -->
-				<a href="#location">Location 地点</a>
+				<a class=wave-btn href="#location">Location 地点</a>
 			</div>
 		</div>
 
@@ -169,22 +217,24 @@
 
 
 	<!-- footer -->
-	<div style=padding:1em;color:navy;background:white;>
-		<H1 id=location>Location 地点</H1>
+	<div id=location style=padding:1em;color:navy;background:white;text-align:center;>
+		<H1>Location 地点</H1>
 		<H3>University of Saint Joseph - Estrada Marginal da Ilha Verde, 14-17, Macau, China</H3>
 		<H3>Don Bosco Auditorium</H3>
 		<H3>圣若瑟大学 - 澳门青洲河边马路14-17号</H3>
+		
+		<style>
+		#location img {max-height:350px;max-width:80vw}
+		</style>
 
-
-
-		<div style=flex-direction:row;align-items:start;justify-content:space-evenly;width:100%;>
+		<div style=flex-direction:row;align-items:start;justify-content:space-evenly;width:100%;gap:1em;>
 			<div>
-			<iframe width="425" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=113.53458166122437%2C22.209589248179988%2C113.54249417781831%2C22.212417594476378&amp;layer=mapnik&amp;marker=22.21100218359142%2C113.53853791952133" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=22.211002&amp;mlon=113.538538#map=19/22.211003/113.538538&amp;layers=N">View Larger Map</a></small>
+			<iframe style=max-width:80vw; width="425" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=113.53458166122437%2C22.209589248179988%2C113.54249417781831%2C22.212417594476378&amp;layer=mapnik&amp;marker=22.21100218359142%2C113.53853791952133" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=22.211002&amp;mlon=113.538538#map=19/22.211003/113.538538&amp;layers=N">View Larger Map</a></small>
 			</div>
-			<img src="location/USJjan18_0101.JPG" style="max-height:350px;"/>
-			<img src="location/USJjan18_0501.JPG" style="max-height:350px;"/>
-			<img src="location/IMG_1709-scaled.jpg" style="max-height:350px;"/>
-			<img src="location/IMG-001.jpg" style="max-height:350px;"/>
+			<img src="location/USJjan18_0101.JPG" />
+			<img src="location/USJjan18_0501.JPG" />
+			<img src="location/IMG_1709-scaled.jpg" />
+			<img src="location/IMG-001.jpg" />
 		</div>
 		<p>© 2025 sino-luso conference on blue biotechnology</p>
 	</div>

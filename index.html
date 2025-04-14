@@ -49,13 +49,10 @@
 	<!-- video banner -->
 	<div style=position:relative;width:100%;overflow:hidden;>
 
-		<video playsinline autoplay muted Loop poster="blue_ocean_waves.jpg" style=position:absolute;top:0;left:0;object-fit:cover;height:100%;width:100%;z-index:-100; >
-			<source src="blue_ocean_waves_5a0ca8.mp4" type="video/mp4">
-		</video>
-
+		<img src="main-web.svg" style=position:absolute;top:0;left:0;object-fit:contain;height:100%;width:100%;z-index:-100; >
 
 		<!-- header -->
-		<div style="opacity:80%;color:white;text-shadow:1px 1px 2px darkblue;padding:1em;text-align:center;flex-direction:column;justify-content:space-evenly;">
+		<div style="opacity:100%;color:white;text-shadow:1px 1px 2px darkblue;padding:1em;text-align:center;flex-direction:column;justify-content:space-evenly;">
 
 			<H1>First Sino-Luso Conference on Blue Biotechnology</H1>
 			<H1>首届中葡蓝色生物科技研讨会</H1>
@@ -69,9 +66,9 @@
 				.wave-btn { position:relative;
 				  color: #fff;
 				  text-decoration: none;
-				  /*border: 3px solid #fff;*/
+				  border: 3px solid #fff;
 				  border-radius: 3em;
-				  background: rgba(0,255,255,0.5);
+				  /*background: rgba(0,255,255,0.5); */
 				  padding: 5px 30px;
 				  font-size: 22px;
 				  font-weight: 600;
@@ -210,7 +207,12 @@
 
 
 	<!-- footer -->
-	<div id=location style=padding:1em;color:navy;background:white;text-align:center;>
+	<div id=location style=padding:1em;color:navy;text-align:center;position:relative;>
+
+		<video playsinline autoplay muted Loop poster="blue_ocean_waves.jpg" style=position:absolute;bottom:0;left:0;object-fit:cover;height:100%;width:100%;z-index:-100; >
+			<source src="blue_ocean_waves_5a0ca8.mp4" type="video/mp4">
+		</video>
+
 		<H1>Location 地点</H1>
 		<H3>University of Saint Joseph - Estrada Marginal da Ilha Verde, 14-17, Macau, China</H3>
 		<H3>Don Bosco Auditorium</H3>

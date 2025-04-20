@@ -28,7 +28,7 @@
 
   <meta name="referrer" content="no-referrer-when-downgrade"><!-- important https://web.dev/referrer-best-practices/ -->
   <meta name="theme-color" content="#82cfed">
-  <script> $=>(a){document.getElementById(a)} </script>
+  <script> $=(a)=>document.getElementById(a) </script>
 
 </head>
 
@@ -63,6 +63,25 @@
 			<div id=menu style=width:100%;flex-direction:row;justify-content:space-around;>
 				<style>
 				#menu a { padding:0.5em;border-radius:3em;text-decoration:none;color:white;text-shadow:1px 1px 3px darkblue;min-width:80px;}
+				.bubble-btn { position:relative;
+				  color: #fff;
+				  text-decoration: none;
+				  border: 3px solid #fff;
+				  border-radius: 3em;
+				  /*background: rgba(0,255,255,0.5); */
+				  padding: 5px 30px;
+				  margin:0.5em;
+				  font-size: 22px;
+				  font-weight: 600;
+				  font-family: "Noto Sans";
+				  line-height: 52px;
+				  overflow: hidden;
+				  background-color: navy;
+				  animation: bubble 3.6s infinite linear;
+				}
+				.bubble-btn:hover {
+				  animation: bubble 25s infinite linear;
+				}
 				.wave-btn { position:relative;
 				  color: #fff;
 				  text-decoration: none;
@@ -70,6 +89,7 @@
 				  border-radius: 3em;
 				  /*background: rgba(0,255,255,0.5); */
 				  padding: 5px 30px;
+				  margin:0.5em;
 				  font-size: 22px;
 				  font-weight: 600;
 				  font-family: "Noto Sans";
@@ -95,19 +115,20 @@
 				}
 
 				@keyframes wave {
-				  0% {
-					  transform: translate(-50%) rotate(-180deg);
-				    
-				  }
-				  100% {
-					  transform: translate(-50%) rotate(360deg);
-				  }
+				  0% { transform: translate(-50%) rotate(-180deg); }
+				  100% { transform: translate(-50%) rotate(360deg); }
+				}
+				@keyframes bubble {
+				  0% { border-radius:3em; }
+				  50% { border-radius:1em; }
+				  100% { border-radius:3em; }
+				}
 				</style>
-				<a id=link class=wave-btn href="https://4670e624.sibforms.com/serve/MUIFAC5F2_l0pxScy2gdraIGaPJrl7VM-HdYJZXpIzPcQ22zvrdl2hcLT4q72MWv6dW3H0NBjtmdpqOoS8-vk4uEYNnONLeH34obSjbiLkvYKULLCA9hKZS28oyKFWLcXIkHHaQ4Ae7M6F5Idco0ABDuMnJRIYwThdBh7J1XuO7bc0mBMvPJYgEpeW0kOlCg_SgR1BxxZDG-N0uy" >Register</a>
-				<a id=link class=wave-btn href="https://4670e624.sibforms.com/serve/MUIFALjg4BMiDFqdN2RFdBP66KSuirJLL9XUer7mOTaHY9UM07R3lOmMxycTR4XCpCDggnhCLv-yDb0CBcTFXR0aCHfJfUch99z3m_u2dTRbuXY40nlkT84GIKeD5o4TAz6FOUYXQdSuDHByxDk5zZ3-V2LoKCBujuOdQu5czIxmK__r7dBlKSSsRsje-Twu_K26dUJL6VfWCfT3" >登记</a>
+				<a id=link class=bubble-btn href="https://4670e624.sibforms.com/serve/MUIFAC5F2_l0pxScy2gdraIGaPJrl7VM-HdYJZXpIzPcQ22zvrdl2hcLT4q72MWv6dW3H0NBjtmdpqOoS8-vk4uEYNnONLeH34obSjbiLkvYKULLCA9hKZS28oyKFWLcXIkHHaQ4Ae7M6F5Idco0ABDuMnJRIYwThdBh7J1XuO7bc0mBMvPJYgEpeW0kOlCg_SgR1BxxZDG-N0uy" >Register</a>
+				<a id=link class=bubble-btn href="https://4670e624.sibforms.com/serve/MUIFALjg4BMiDFqdN2RFdBP66KSuirJLL9XUer7mOTaHY9UM07R3lOmMxycTR4XCpCDggnhCLv-yDb0CBcTFXR0aCHfJfUch99z3m_u2dTRbuXY40nlkT84GIKeD5o4TAz6FOUYXQdSuDHByxDk5zZ3-V2LoKCBujuOdQu5czIxmK__r7dBlKSSsRsje-Twu_K26dUJL6VfWCfT3" >登记</a>
 				<!--<a href="#speakers">Seeking Speakers 寻求演講者</a> -->
-				<!--<a href="#programme">Programme 程序</a> -->
-				<a class=wave-btn href="#location">Location 地点</a>
+				<a class=bubble-btn href="#programme">Programme 日程</a>
+				<a class=bubble-btn href="#location">Location 地点</a>
 			</div>
 		</div>
 
@@ -145,6 +166,45 @@
 		<img src="underwater lab.webp" style=position:absolute;top:0;left:0;object-fit:cover;height:100%;width:100%;z-index:-100; />
 	</div>
 
+	<div style=color:black;padding:1em;>
+		<H2 id=programme>Programme 日程</H2>
+		<script src="./programme/programme_tsv.js"></script>
+		<style>
+			programme { display:flex;flex-direction:column;font-size:0.8em;}
+			row { display:flex;flex-direction:row;flex-wrap:wrap;border-top:1px solid grey; }
+			row p { width:10em;margin:0.3em 0; }
+		</style>
+		<script>
+		function tsv_ready( data , format , node ){
+			var sHTML= ""
+			var col = data[ 0 ] .length
+			data.forEach( ( s , i ) => {
+				//if( s.length < col ) return
+				sHTML += "<row>"
+				s.forEach( d => { sHTML += `<p>${d}</p>` } )
+				sHTML += "</row>"
+			} )
+			var node = document.getElementById( "programmeDOM" )
+			node.innerHTML = sHTML
+			/*
+			node.addEventListener( "click" , ( event ) => {
+				// click to expand
+				var n = event.target
+				if( n == node ) return
+				while( n.parentNode != node ){
+					n = n.parentNode
+				}
+				var p = n.getElementsByTagName( "p" )
+				for( s = 0 ; s < p.length ; s++ ){
+					p[ s ].style.maxHeight = "none"
+				}
+			} )
+			*/
+		} // ready
+		addEventListener( "DOMContentLoaded" , ( event ) => { tsv_ready( programme_tsv , "" , "programmeDOM" ) } )
+		</script>
+		<programme id=programmeDOM></programme>
+	</div>
 	<!-- banner -->
 	<div style=background:#155e75;color:white;padding:1em;>
 		<H2 id=speakers>Connecting Biotechnology Innovators</H2>

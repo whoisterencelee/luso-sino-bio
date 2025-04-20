@@ -126,7 +126,7 @@
 				</style>
 				<a id=link class=bubble-btn href="https://4670e624.sibforms.com/serve/MUIFAC5F2_l0pxScy2gdraIGaPJrl7VM-HdYJZXpIzPcQ22zvrdl2hcLT4q72MWv6dW3H0NBjtmdpqOoS8-vk4uEYNnONLeH34obSjbiLkvYKULLCA9hKZS28oyKFWLcXIkHHaQ4Ae7M6F5Idco0ABDuMnJRIYwThdBh7J1XuO7bc0mBMvPJYgEpeW0kOlCg_SgR1BxxZDG-N0uy" >Register</a>
 				<a id=link class=bubble-btn href="https://4670e624.sibforms.com/serve/MUIFALjg4BMiDFqdN2RFdBP66KSuirJLL9XUer7mOTaHY9UM07R3lOmMxycTR4XCpCDggnhCLv-yDb0CBcTFXR0aCHfJfUch99z3m_u2dTRbuXY40nlkT84GIKeD5o4TAz6FOUYXQdSuDHByxDk5zZ3-V2LoKCBujuOdQu5czIxmK__r7dBlKSSsRsje-Twu_K26dUJL6VfWCfT3" >登记</a>
-				<!--<a href="#speakers">Seeking Speakers 寻求演講者</a> -->
+				<a class=bubble-btn href="#speakers">Speakers 演講者</a>
 				<a class=bubble-btn href="#programme">Programme 日程</a>
 				<a class=bubble-btn href="#location">Location 地点</a>
 			</div>
@@ -227,19 +227,19 @@
 		</style>
 
 		<H2>Speakers 演讲者</H2>
-		<script src="./speakers/speakers.js"></script>
+		<script src="./speakers/speakers_tsv.js"></script>
 		<script>
 		function ready() {
-			sRow = speakerstxt.split( "\n" ).map( r => r.split( "\t" ) )
+			sRow = speakers_tsv
 			sHTML = ""
 			sRow.forEach( ( s , i ) => {
 				if( i == 0 || s.length < 5 || s[4]=="" ) return
 				sHTML += `<speaker>
-					<photo><img src="speakers/${s[4]}" /></photo>
+					<photo><img src="speakers/${s[0].trim()}.jpg" /></photo>
 					<bio>
 						<p>${s[0]}</p>
 						<p>${s[1]} ${s[2]?"- "+s[2]:""}</p>
-						<p>${s[3]}</p>
+						<p>${s[4]}</p>
 					</bio>
 					</speaker>
 				` } )

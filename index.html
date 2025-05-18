@@ -226,45 +226,6 @@
 		<img src="underwater lab.webp" style=position:absolute;top:0;left:0;object-fit:cover;height:100%;width:100%;z-index:-100; />
 	</div>
 
-	<div style=color:black;padding:1em;>
-		<H2 id=programme>Programme 日程</H2>
-		<script src="./programme/programme_tsv.js"></script>
-		<style>
-			programme { display:flex;flex-direction:column;font-size:0.8em;}
-			row { display:flex;flex-direction:row;flex-wrap:wrap;border-top:1px solid grey; }
-			row p { width:10em;margin:0.3em 0; }
-		</style>
-		<script>
-		function tsv_ready( data , format , node ){
-			var sHTML= ""
-			var col = data[ 0 ] .length
-			data.forEach( ( s , i ) => {
-				//if( s.length < col ) return
-				sHTML += "<row>"
-				s.forEach( d => { sHTML += `<p>${d}</p>` } )
-				sHTML += "</row>"
-			} )
-			var node = document.getElementById( "programmeDOM" )
-			node.innerHTML = sHTML
-			/*
-			node.addEventListener( "click" , ( event ) => {
-				// click to expand
-				var n = event.target
-				if( n == node ) return
-				while( n.parentNode != node ){
-					n = n.parentNode
-				}
-				var p = n.getElementsByTagName( "p" )
-				for( s = 0 ; s < p.length ; s++ ){
-					p[ s ].style.maxHeight = "none"
-				}
-			} )
-			*/
-		} // ready
-		addEventListener( "DOMContentLoaded" , ( event ) => { tsv_ready( programme_tsv , "" , "programmeDOM" ) } )
-		</script>
-		<programme id=programmeDOM></programme>
-	</div>
 	<!-- banner -->
 	<div style=background:#155e75;color:white;padding:1em;>
 		<H2 id=speakers>Connecting Biotechnology Innovators</H2>
@@ -325,6 +286,45 @@
 
 	</div>
 
+	<div style=color:black;padding:1em;>
+		<H2 id=programme>Programme 日程</H2>
+		<script src="./programme/programme_tsv.js"></script>
+		<style>
+			programme { display:flex;flex-direction:column;font-size:0.8em;}
+			row { display:flex;flex-direction:row;flex-wrap:wrap;border-top:1px solid grey; }
+			row p { width:10em;margin:0.3em 0; }
+		</style>
+		<script>
+		function tsv_ready( data , format , node ){
+			var sHTML= ""
+			var col = data[ 0 ] .length
+			data.forEach( ( s , i ) => {
+				//if( s.length < col ) return
+				sHTML += "<row>"
+				s.forEach( d => { sHTML += `<p>${d}</p>` } )
+				sHTML += "</row>"
+			} )
+			var node = document.getElementById( "programmeDOM" )
+			node.innerHTML = sHTML
+			/*
+			node.addEventListener( "click" , ( event ) => {
+				// click to expand
+				var n = event.target
+				if( n == node ) return
+				while( n.parentNode != node ){
+					n = n.parentNode
+				}
+				var p = n.getElementsByTagName( "p" )
+				for( s = 0 ; s < p.length ; s++ ){
+					p[ s ].style.maxHeight = "none"
+				}
+			} )
+			*/
+		} // ready
+		addEventListener( "DOMContentLoaded" , ( event ) => { tsv_ready( programme_tsv , "" , "programmeDOM" ) } )
+		</script>
+		<programme id=programmeDOM></programme>
+	</div>
 
 	<!-- footer -->
 	<div id=location style=padding:1em;color:navy;text-align:center;position:relative;>
